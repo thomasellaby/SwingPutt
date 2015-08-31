@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Swing and Putt Golf Course</title>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    var timeout = 100;
+    var closetimer = 0;
+    var ddmenuitem = 0;
+
+    function jsddm_open() {
+        jsddm_canceltimer();
+        jsddm_close();
+        ddmenuitem = $(this).find('ul').css('visibility', 'visible');
+    }
+
+    function jsddm_close() {
+        if (ddmenuitem) ddmenuitem.css('visibility', 'hidden');
+    }
+
+    function jsddm_timer() {
+        closetimer = window.setTimeout(jsddm_close, timeout);
+    }
+
+    function jsddm_canceltimer() {
+        if (closetimer) {
+            window.clearTimeout(closetimer);
+            closetimer = null;
+        }
+    }
+
+    $(document).ready(function() {
+        $('#jsddm > li').bind('mouseover', jsddm_open)
+        $('#jsddm > li').bind('mouseout', jsddm_timer)
+    });
+
+    document.onclick = jsddm_close;
+    </script>
+</head>
+
+<body>
+    <div id="header">
+        <img class="centre" src="images/slide1.jpg" alt="Golf Header Image" width="760" height="190" />
+    </div>
+    <div id="nav">
+        <ul id="jsddm">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="products.html">Products</a>
+                <ul>
+                    <li><a href="golfclubs.html">Golf Clubs</a></li>
+                    <li><a href="accessories.html">Accessories</a></li>
+                </ul>
+            </li>
+            <li><a href="restaurant.html">Restaurant</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    <br>
+    <div id="content">
+        <h3>  Welcome to Swing and Putt Golf Course</h3>
+        <span class="blocktext"><span style="text-align: right"><img class="right" src="images/restaurant.png" alt="Restaurant" width="285" height="156" align="right"></span></span>
+        <p class="blocktext">
+            Located in the heart of Queensland's magnificent Sunshine Coast, Ray's Swing and Putt Golf Course is a jewel in the crown of the area's golf courses. An amazing design awaits you a 60 year old course with the charms and charisma that only a classic course can provide. This along with a traditional clubhouse - "cold beer and great food" - and the best views in the entire Sunshine Coast, combine to make the Ray's Swing and Putt Golf Course an unforgettable experience.
+        </p>
+        <br>
+        <img src="images/golfcourse.png" width="492" height="214" alt="Golf Course Aerial" style="margin-left:320px;">
+    </div>
+    <div id="footer">
+        <br>
+        <footer class="copyright">
+            Website Copyright 2015 Thomas Ellaby Designs
+        </footer>
+    </div>
+</body>
+
+</html>
